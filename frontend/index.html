@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de Planos de Aula</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Planos de Aula</h1>
+        <form id="formPlano">
+            <label>Nome da Escola:</label>
+            <input type="text" id="escola" required>
+            
+            <label>Professor:</label>
+            <input type="text" id="professor" required>
+
+            <label>Série:</label>
+            <input type="text" id="serie" required>
+
+            <label>Disciplina:</label>
+            <input type="text" id="disciplina" required>
+
+            <label>Objetivos:</label>
+            <textarea id="objetivos"></textarea>
+
+            <button type="submit">Gerar Plano</button>
+        </form>
+        <p id="resultado"></p>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
