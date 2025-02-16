@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import pdfkit
 import json
+import os
 from fastapi.responses import HTMLResponse
 from jinja2 import Environment, FileSystemLoader
 
@@ -10,9 +11,13 @@ app = FastAPI()
 # Configuração do Jinja2 para templates
 env = Environment(loader=FileSystemLoader("templates"))
 
-# Banco de dados simulado com BNCC (pode ser melhorado com um banco real)
-with open("bncc.json", "r", encoding="utf-8") as f:
-    BNCC_DATA = json.load(f)
+# Verifica se o arquivo bncc.json existe para evitar erro de FileNotFoundError
+BNCC_DATA = {}
+if os.path.exists("bncc.json"):
+    with open("bncc.json", "r", encoding="utf-8") as f:
+        BNCC_DATA = json.load(f)
+else:
+    print("⚠️ Aviso: Arquivo bncc.json não encontrado. O sistema funcionará sem ele.")
 
 # Modelo de entrada de dados
 class PlanoAula(BaseModel):
@@ -42,11 +47,6 @@ def gerar_plano(plano: PlanoAula):
         # Criar PDF
         pdf_path = "plano_aula.pdf"
         pdfkit.from_string(html_content, pdf_path)
-        
-        return {"message": "Plano de aula gerado com sucesso!", "pdf": pdf_path}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
         
         return {"message": "Plano de aula gerado com sucesso!", "pdf": pdf_path}
     except Exception as e:
