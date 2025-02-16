@@ -1,3 +1,4 @@
 fastapi
 pdfkit
 uvicorn
+jinja2
