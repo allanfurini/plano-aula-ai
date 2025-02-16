@@ -4,42 +4,52 @@
     <meta charset="UTF-8">
     <title>Gerador de Planos de Aula</title>
     <link rel="stylesheet" href="../static/styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
-        <h1>Gerador de Planos de Aula</h1>
+        <h1>📚 Gerador de Planos de Aula</h1>
+        <p>Preencha os campos abaixo para gerar um plano de aula completo e baixar em PDF.</p>
+
+        <div class="info-box">
+            <h2><i class="fas fa-file-alt"></i> Como Funciona?</h2>
+            <p>1️⃣ Preencha os campos do formulário com as informações da sua aula.</p>
+            <p>2️⃣ Clique em <strong>"Gerar Plano"</strong>.</p>
+            <p>3️⃣ O plano será gerado automaticamente e baixado em PDF.</p>
+        </div>
+
         <form id="formPlano">
-            <label>Nome da Escola:</label>
+            <label><i class="fas fa-school"></i> Nome da Escola:</label>
             <input type="text" id="escola" required>
             
-            <label>Professor:</label>
+            <label><i class="fas fa-user"></i> Professor:</label>
             <input type="text" id="professor" required>
 
-            <label>Série:</label>
+            <label><i class="fas fa-users"></i> Série:</label>
             <input type="text" id="serie" required>
 
-            <label>Disciplina:</label>
+            <label><i class="fas fa-book"></i> Disciplina:</label>
             <input type="text" id="disciplina" required>
 
-            <label>Objetivos:</label>
+            <label><i class="fas fa-bullseye"></i> Objetivos:</label>
             <textarea id="objetivos" required></textarea>
 
-            <label>Recursos:</label>
+            <label><i class="fas fa-toolbox"></i> Recursos:</label>
             <textarea id="recursos" required></textarea>
 
-            <label>Metodologia:</label>
+            <label><i class="fas fa-chalkboard-teacher"></i> Metodologia:</label>
             <textarea id="metodologia" required></textarea>
 
-            <label>Atividades:</label>
+            <label><i class="fas fa-tasks"></i> Atividades:</label>
             <textarea id="atividades" required></textarea>
 
-            <label>Avaliação:</label>
+            <label><i class="fas fa-clipboard-check"></i> Avaliação:</label>
             <textarea id="avaliacao" required></textarea>
 
-            <label>Competências BNCC:</label>
+            <label><i class="fas fa-graduation-cap"></i> Competências BNCC:</label>
             <input type="text" id="competencias" required>
 
-            <button type="submit">Gerar Plano</button>
+            <button type="submit"><i class="fas fa-download"></i> Gerar Plano</button>
         </form>
         <p id="resultado"></p>
     </div>
